@@ -40,12 +40,13 @@ jobs:
                  run: |
                     echo "OVERWRIITEN env var: ${{env.OVERWRITTEN}}"
                    
-     echo2:
+     echo-repo:
          runs-on: ubuntu-latest
          steps:
                - name: Print Repository Variables
                  run: |
                     echo "Repo var: ${{vars.REPOSITORY_VAR}}"
+                    echo "Repo Overwritten var: ${{vars.OVERWRITTEN_VAR}}
                   
      echo-prod:
          runs-on: ubuntu-latest
@@ -56,6 +57,16 @@ jobs:
                    echo "Repo var: ${{vars.REPOSITORY_VAR}}"
                    echo "Environment var: ${{vars.TARGET_VAR}}"
                    echo "Prod Overwritten var: ${{vars.OVERWRITTEN_VAR}}"
+
+     echo-staging:
+         runs-on: ubuntu-latest
+         environment: staging
+         steps:
+              - name: Print Staging Variables
+                run: |
+                   echo "Repo var: ${{vars.REPOSITORY_VAR}}"
+                   echo "Environment var: ${{vars.TARGET_VAR}}"
+                   echo "Prod Overwritten var: ${{vars.OVERWRITTEN_VAR}}"             
 
      echo-undefined:
          runs-on: ubuntu-latest
