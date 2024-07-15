@@ -1,0 +1,40 @@
+name: 08 - Using Varibales
+
+on: 
+    push:
+    workflow_dispatch:
+
+#This variable is available on workflow level and canot be used outside this workflow        
+env:
+    WORKFLOW_VAR: 'I am a workflow env var'
+    workflow_var2: 'I am a workflow env var2'
+    OVERWRITTEN: 'I will be overwritten'       
+
+jobs:
+     echo:
+         runs-on: ubuntu-latest
+         #This variable is available on job level, cannot be used in another job
+         env:
+              JOB_VAR: 'I am a job env var'
+              job_var2: 'I am a job env var2'
+              OVERWRITTEN: 'I will be overwritten on job level'
+         steps:
+               - name: Print Env Variables
+                #this variabe avaible on step level only, cannot be used in another steps
+                 env:
+                     STEP_VAR: 'I am a step env var'
+                     step_var2: 'I am a step env var2'                    
+                 run: |
+                     echo "Step env var: ${{env.STEP_VAR}}"
+                     echo "Step env var2: $step_var2" 
+                     echo "Job env var: ${{env.JOB_VAR}}"
+                     echo "Job env var2: $job_var2"
+                     echo "Workflow env var: ${{env.WORKFLOW_VAR}}"
+                     echo "Workflow env var2: $workflow_var2"
+                     echo "OVERWRIITEN env var: ${{env.OVERWRITTEN}}"
+               
+               - name: Overritten Env Variables
+                 env:
+                      OVERWRITTEN: 'I will be overwritten on step level'
+                 run: |
+                    echo "OVERWRIITEN env var: ${{env.OVERWRITTEN}}"
