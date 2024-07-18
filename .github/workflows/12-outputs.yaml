@@ -8,11 +8,11 @@ jobs:
     build:
          runs-on: ubuntu-latest
          outputs:
-             results: ${{ steps.build.outputs.result }}
+             results: ${{ steps.build.outputs.results }}
          steps:
              - name: Build
                id: build
-               run: echo "result = success" >> "$GITHUB_OUTPUT"
+               run: echo "results = success" >> "$GITHUB_OUTPUT"
   
     deploy:
          runs-on: ubuntu-latest
