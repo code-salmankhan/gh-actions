@@ -23,7 +23,7 @@ jobs:
     deploy:
          runs-on: ubuntu-latest
          needs: build
+         if: ${{needs.build.outputs.result == 'success'}}
          steps:
                - name: Deploy
-                 if: ${{needs.build.outputs.result == 'success'}}
                  run: echo "Deploying"
