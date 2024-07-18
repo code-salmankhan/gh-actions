@@ -8,7 +8,7 @@ jobs:
     build:
          runs-on: ubuntu-latest
          outputs:
-             result: ${{ steps.build.outputs.result }}
+             results: ${{ steps.build.outputs.result }}
          steps:
              - name: Build
                id: build
@@ -19,5 +19,5 @@ jobs:
          needs: build
          steps:
                - name: Deploy
-                 if: ${{needs.build.outputs.result == 'success'}}
+                 if: ${{needs.build.outputs.results == 'success'}}
                  run: echo "Deploying"
