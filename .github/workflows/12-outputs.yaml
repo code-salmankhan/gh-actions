@@ -2,7 +2,13 @@ name: 12 - Working with Ouputs
 
 on:
     workflow_dispatch:
-
+         inputs:
+             building-status:
+                     type: choice
+                     options:
+                       - success
+                       - failure
+                     default: success
   
 jobs:
     build:
