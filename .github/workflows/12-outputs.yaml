@@ -23,7 +23,7 @@ jobs:
                  # "<key> = <value>" >> "$GITHUB_OUTPUT" to store in outputs
                  run: echo "status = ${{ inputs.building-status }}" >> "$GITHUB_OUTPUT"
                - name:  Print GITHUB_OUTPUT path2
-                 run: echo "$GITHUB_OUTPUT"
+                 run: echo "${{ steps.build.outputs.status }} "
 
      deploy:
          runs-on: ubuntu-latest
