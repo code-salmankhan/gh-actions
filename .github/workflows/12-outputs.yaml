@@ -16,12 +16,14 @@ jobs:
          outputs:
               build-status: ${{ steps.build.outputs.status }}    
          steps:
-              - name: Print GITHUB_OUTPUT path
-                run: echo "$GITHUB_OUTPUT"
-              - name: Build
-                id: build
-                # "<key> = <value>" >> "$GITHUB_OUTPUT" to store in outputs
-                run: echo "status = ${{ inputs.building-status }}" >> "$GITHUB_OUTPUT"
+               - name: Print GITHUB_OUTPUT path
+                 run: echo "$GITHUB_OUTPUT"
+               - name: Build
+                 id: build
+                 # "<key> = <value>" >> "$GITHUB_OUTPUT" to store in outputs
+                 run: echo "status = ${{ inputs.building-status }}" >> "$GITHUB_OUTPUT"
+               - name:  Print GITHUB_OUTPUT path2
+                 run: echo "$GITHUB_OUTPUT"
 
      deploy:
          runs-on: ubuntu-latest
