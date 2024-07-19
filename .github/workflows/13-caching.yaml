@@ -11,16 +11,16 @@ on:
 jobs:
      build:
          runs-on: ubuntu-latest
-         defaults:
-             run:
-                working-directory: 13-caching/react-app
+        # defaults:
+           #  run:
+               # working-directory: 13-caching/react-app
 
          steps:
              #1. Checkout the code
              - name: Checkout code
                uses: actions/checkout@v4
              - name: Setup Node
-               uses: actions/setup-node@v2
+               uses: actions/setup-node@v3
                with: 
                     node-version: '22.x'
              #2. install dependecies       
