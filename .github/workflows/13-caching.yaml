@@ -11,9 +11,9 @@ on:
 jobs:
      build:
          runs-on: ubuntu-latest
-        # defaults:
-           #  run:
-               # working-directory: 13-caching/react-app
+         defaults:
+             run:
+                working-directory: 13-caching/react-app
 
          steps:
              #1. Checkout the code
