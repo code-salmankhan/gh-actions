@@ -37,9 +37,9 @@ jobs:
           - name: Download cache key
             id: cache-key
             run: |
-               echo "CACHE_KEY = deps-node-modules-${{ hashFiles('13-caching/react-app/packaqge-lock.json')}}" >> "GITHUB_OUTPUT"
+               echo "CACHE_KEY = deps-node-modules-${{ hashFiles('13-caching/react-app/packaqge-lock.json') }}" >> "GITHUB_OUTPUT"
           # Download cache dependencies
-          - name: Download cache dependencies
+          - name: Download cached dependencies
             uses: actions/cache@v3
             if: ${{ inputs.use-cache }}
             id: cache
@@ -74,6 +74,9 @@ jobs:
                with:
                     path: 13-caching/react-app/node-modules
                     key: ${{ needs.install-deps.outputs.deps-cache-key }}
+             - name: Install dependencies
+               if: steps.cache.outputs.cache-hit != 'true'
+               run: npm ci         
              - name: Testing
                run: npm run test 
              - name: Linting
@@ -102,7 +105,9 @@ jobs:
                with:
                     path: 13-caching/react-app/node-modules
                     key: ${{ needs.install-deps.outputs.deps-cache-key }}
-              # run: npm ci
+             - name: Install dependencies
+               if: steps.cache.outputs.cache-hit != 'true'
+               run: npm ci    
              - name: Building
                run: npm run build
               #4. Deploy to a nonprod env 
