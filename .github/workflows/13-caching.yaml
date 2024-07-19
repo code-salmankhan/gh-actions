@@ -13,7 +13,7 @@ jobs:
          runs-on: ubuntu-latest
          defaults:
              run:
-                  working-directory: 13-caching/react-app
+                working-directory: 13-caching/react-app
 
          steps:
              #1. Checkout the code
@@ -22,7 +22,7 @@ jobs:
              - name: Setup Node
                uses: actions/setup-node@v3
                with: 
-                    node-version: '22.x'
+                    node-version: 'v22.x'
              #2. install dependecies       
              - name: Install dependencies
                run: npm ci
