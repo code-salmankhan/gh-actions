@@ -26,8 +26,8 @@ jobs:
              #clean cache
              - name: Clean cache
                run: npm cache clean --force
-             - name: npm update
-               run: npm install -g npm
+             - name: Reinstall npm
+               run: npm update
              #2. install dependecies       
              - name: Install dependencies
                run: npm ci
