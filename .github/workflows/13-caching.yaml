@@ -7,6 +7,15 @@ on:
                  description: Whether to execute cache step
                  type: boolean
                  default: true
+             node-version: 
+                 description: Node version
+                 type: choice
+                 options:
+                    - 16.x
+                    - 18.x
+                    - 20.x
+                    - 22.x
+                 default: 16.x   
 
 jobs:
      build:
@@ -22,9 +31,18 @@ jobs:
              - name: Setup Node
                uses: actions/setup-node@v3
                with: 
-                    node-version: '16.x'
+                    node-version: '${{ inputs.node-version }}'
+             # Download cache dependencies
+             - name: Download cache dependencies
+               uses: actions/cache@v3
+               if: ${{ inputs.use-cache }}
+               id: cache
+               with:
+                    path: 13-caching/react-app/node-modules
+                    key: deps-node-modules-${{ hashFiles('13-caching/react-app/package-lock.json') }} 
              #2. install dependecies       
              - name: Install dependencies
+               if: steps.cache.outputs.cache-hit != 'true'
                run: npm ci
              #3. Linting, formating, unit testing, building
              - name: Testing
