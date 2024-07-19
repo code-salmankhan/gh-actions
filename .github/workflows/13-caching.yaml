@@ -23,11 +23,6 @@ jobs:
                uses: actions/setup-node@v3
                with: 
                     node-version: '22.x'
-             #clean cache
-             - name: Clean cache
-               run: npm cache clean --force
-             - name: Reinstall npm
-               run: npm update
              #2. install dependecies       
              - name: Install dependencies
                run: npm ci
