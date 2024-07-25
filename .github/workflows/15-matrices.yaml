@@ -9,7 +9,7 @@ jobs:
         runs-on: ${{matrix.os}}
         strategy:
             # if it true then any job will fail it will encrypt other jobs and fail then other job also get exceute even one is failed
-            fail-fast: true
+            fail-fast: false
             matrix: 
                  node-version: [18.x, 20.x, 21.x]
                  os:
