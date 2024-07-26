@@ -55,7 +55,7 @@ jobs:
                   - color: green
                     shape: circle
                     size: medium                       
-               exclude:
+              exclude:
                   - color: green
                     shape: circle
         steps:
