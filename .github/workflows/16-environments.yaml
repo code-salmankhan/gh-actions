@@ -9,7 +9,7 @@ on:
 
 jobs:
      echo:
-         runs-on: ubuntu latest
+         runs-on: ubuntu-latest
          environment: ${{ inputs.target-env }} 
          env:
             my-env-value: ${{ vars.MY_ENV_VALUE || 'default value' }}
