@@ -28,7 +28,7 @@ async function run() {
         return;
     }
 
-    if (!validateDirectoryName({ dirName:workingDir }))  {
+    if (!validateDirectoryName({ dirName: workingDir }))  {
 
         core.setFailed('Invalid target branch name. Branch names should include only characters, numbers, hyphens, underscores, dots and forward slashes.');
         return;
