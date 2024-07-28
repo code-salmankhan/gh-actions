@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const exec = require('@actions/exec');
 
+
 const validateBranchName = ({ branchName }) => 
     /^[a-zA-Z0-9_\-\.\/]+$/.test(branchName);
 const validateDirectoryName = ({ dirName }) => 
@@ -43,9 +44,7 @@ async function run() {
       cwd: workingDir
    });
 
-   const gitStatus = await exec.getExecOutput(
-    'git status -s package*.json',
-    [],
+   const gitStatus = await exec.getExecOutput('git status -s package*.json', [],
     {
         cwd: workingDir,
     }
