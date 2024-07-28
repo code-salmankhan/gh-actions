@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const { exec } = require('child_process');
+const exec = require('@actions/exec');
 
 const validateBranchName = ({ branchName }) => 
     /^[a-zA-Z0-9_\-\.\/]+$/.test(branchName);
