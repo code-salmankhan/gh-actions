@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const exec = require('@actions/exec');
-const exec = require('@action/github');
+const github = require('@action/github');
+
 const { GitHub } = require('@actions/github/lib/utils');
 
 const validateBranchName = ({ branchName }) => 
