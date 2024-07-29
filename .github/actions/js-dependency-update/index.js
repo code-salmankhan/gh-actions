@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const exec = require('@actions/exec');
-const github = require('@action/github');
+const github = require('@actions/github');
 
 const { GitHub } = require('@actions/github/lib/utils');
 
