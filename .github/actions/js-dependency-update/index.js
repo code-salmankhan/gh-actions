@@ -18,11 +18,19 @@ async function run() {
        1.3 Github Token for authentication proposes (to create PR)
        1.4 Working directory for which to check for dependencies
 */
+/*
     const baseBranch = core.getInput('base-branch', { required: true });
     const targetBranch = core.getInput('target-branch', { required: true });
     const ghToken = core.getInput('gh-token', { required: true });
     const workingDir = core.getInput('working-directory', { required: true });
     const debug = core.getBooleanInput('debug');
+*/
+const baseBranch = main;
+const targetBranch = update-dependencies;
+const ghToken = core.getInput('gh-token', { required: true });
+const workingDir = 17-custom-actions/react-app;
+const debug = core.getBooleanInput('debug');
+
 
     const commonExecOpts = {
          cwd: workingDir
