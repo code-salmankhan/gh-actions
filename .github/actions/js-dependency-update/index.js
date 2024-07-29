@@ -25,10 +25,10 @@ async function run() {
     const workingDir = core.getInput('working-directory', { required: true });
     const debug = core.getBooleanInput('debug');
 */
-const baseBranch = main;
-const targetBranch = update-dependencies;
+const baseBranch = "main";
+const targetBranch = "update-dependencies";
 const ghToken = core.getInput('gh-token', { required: true });
-const workingDir = 17-custom-actions/react-app;
+const workingDir = "17-custom-actions/react-app";
 const debug = core.getBooleanInput('debug');
 
 
