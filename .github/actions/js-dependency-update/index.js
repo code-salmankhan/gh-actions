@@ -25,11 +25,14 @@ async function run() {
     const workingDir = core.getInput('working-directory', { required: true });
     const debug = core.getBooleanInput('debug');
 */
-const baseBranch = "main";
-const targetBranch = "update-dependencies";
-const ghToken = core.getInput('gh-token', { required: true });
-const workingDir = "17-custom-actions/react-app";
-const debug = core.getBooleanInput('debug');
+
+    const baseBranch = core.getInput('base-branch', { required: true });
+    const headBranch = core.getInput('head-branch', { required: true });
+    const ghToken = core.getInput('gh-token', { required: true });
+    const workingDir = core.getInput('working-directory', { required: true });
+    const debug = core.getBooleanInput('debug');
+    const logger = setupLogger({ debug, prefix: '[js-dependency-update]' });
+
 
 
     const commonExecOpts = {
