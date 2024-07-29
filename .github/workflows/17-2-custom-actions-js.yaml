@@ -18,6 +18,11 @@ on:
 env:
      working-directory: 17-custom-actions/react-app
 
+permissions:
+     contents: write
+     pull-requests: write
+
+
 jobs:
      dependency-update:
          runs-on: ubuntu-latest
@@ -29,4 +34,5 @@ jobs:
                 basebranch: ${{ inputs.base-branch }}
                 target-branch: ${{ inputs.traget-branch }}
                 working-directory: ${{inputs.working-dir}}
+                gh-token: ${{secrets.GITHUB_TOKEN}}
              
