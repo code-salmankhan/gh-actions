@@ -1,0 +1,28 @@
+name: 17 - Custom actions - JS
+run-name: 17 - 1 - Custom Actions - JS | BB - ${{inputs.base-branch}} TB - ${{ inputs.traget-branch}} WD - ${{inputs.working-dir}}
+
+on:
+    workflow_dispatch: 
+        inputs:
+            url:
+                type: string
+                default: 'https://www.google.com'
+
+
+env:
+     working-directory: 17-custom-actions/react-app
+
+permissions:
+     contents: write
+     pull-requests: write
+
+
+jobs:
+     ping-url:
+         runs-on: ubuntu-latest
+         steps:
+            - uses: actions/checkout@v4       
+            - name: Ping URL
+              uses: ./.github/actions/docker-ping-url
+              with:
+                url: ${{ inputs.url }}
