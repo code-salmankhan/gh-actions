@@ -1,5 +1,5 @@
 name: 17 - Custom actions - Docker
-run-name: 17 - 1 - Custom Actions - JS | BB - ${{inputs.base-branch}} TB - ${{ inputs.traget-branch}} WD - ${{inputs.working-dir}}
+
 
 on:
     workflow_dispatch: 
